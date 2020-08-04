@@ -3,7 +3,7 @@ FROM node:12.16.1 as build
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json ./
-RUN yarn install
+RUN yarn install --network-timeout=300000
 COPY . ./
 RUN yarn build
 
